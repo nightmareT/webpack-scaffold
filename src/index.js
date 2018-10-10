@@ -1,23 +1,12 @@
-import _ from 'lodash'
-import printMe from './print.js'
-import './style.css'
+   import _ from 'lodash';
+  
+  function component() {
+    let element = document.createElement('div');
 
-function component() {
-    let element = document.createElement('div')
-    const btn = document.createElement('button')
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ')
-    element.classList.add('hello')
-    btn.innerHTML = 'Click me andaa check the console!'
-    btn.onclick = printMe
-    element.appendChild(btn)
-    return element
-}
+   // Lodash, currently included via a script, is required for this line to work
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-document.body.appendChild(component())
+    return element;
+  }
 
-if (module.hot) [
-    module.hot.accept('./print.js', function() {
-        console.log('Accepting the updated printMe module!')
-        printMe()
-    })
-]
+  document.body.appendChild(component());
